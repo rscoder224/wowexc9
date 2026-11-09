@@ -1,1 +1,845 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official corporate website of Saran Enterprises. Registered business providing dedicated services with statutory compliance and corporate integrity. Contact: info@saranenterprises.com">
+    <meta name="keywords" content="Saran Enterprises, Corporate Entity, Business Operations, Official Business Website">
+    <meta name="author" content="Saran Enterprises">
+    <title>Saran Enterprises | Official Corporate Website</title>
+    
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        aqua: {
+                            50: '#F0FDF9',
+                            100: '#CCFBF1',
+                            200: '#99F6E4',
+                            400: '#2DD4BF',
+                            500: '#14B8A6',
+                            600: '#0D9488',
+                            700: '#0F766E',
+                            800: '#115E59',
+                            900: '#134E4A',
+                        },
+                        gold: {
+                            300: '#FDE047',
+                            400: '#FACC15',
+                            500: '#D4AF37',
+                            600: '#CA8A04',
+                            700: '#A16207',
+                        },
+                        navy: {
+                            800: '#1E293B',
+                            900: '#0F172A',
+                            950: '#090D16',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        :root {
+            --primary-aqua: #0D9488;
+            --primary-aqua-dark: #0F766E;
+            --primary-aqua-light: #E6FFFA;
+            --secondary-gold: #D4AF37;
+            --secondary-gold-hover: #B89528;
+            --bg-navy: #0F172A;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: #FAFCFC;
+            overflow-x: hidden;
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #D4AF37 0%, #F5D77F 50%, #B89528 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .aqua-gradient-bg {
+            background: linear-gradient(135deg, #0F766E 0%, #0D9488 50%, #14B8A6 100%);
+        }
+
+        .gold-button {
+            background: linear-gradient(135deg, #D4AF37 0%, #E5C158 100%);
+            color: #0F172A;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+        }
+
+        .gold-button:hover {
+            background: linear-gradient(135deg, #E5C158 0%, #D4AF37 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(13, 148, 136, 0.15);
+        }
+
+        .dark-glass-card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+            outline: 2px solid var(--secondary-gold);
+            outline-offset: 2px;
+        }
+
+        /* Modal Transitions */
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-teal-500 selection:text-white">
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-teal-100 shadow-sm transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo & Brand Name -->
+                <a href="#home" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="w-10 h-10 rounded-lg aqua-gradient-bg flex items-center justify-center text-gold-400 font-bold text-xl shadow-md border border-gold-500/30">
+                        <i class="fa-solid me-0.5 fa-building"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-lg sm:text-xl tracking-tight text-slate-900 group-hover:text-teal-700 transition-colors">
+                            Saran Enterprises
+                        </span>
+                        <span class="text-[10px] tracking-widest text-gold-600 font-semibold uppercase">Corporate Entity</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="text-slate-700 hover:text-teal-700 font-semibold text-sm transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gold-500 hover:after:w-full after:transition-all">Home</a>
+                    <a href="#about" class="text-slate-700 hover:text-teal-700 font-semibold text-sm transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gold-500 hover:after:w-full after:transition-all">About Us</a>
+                    <a href="#business-info" class="text-slate-700 hover:text-teal-700 font-semibold text-sm transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gold-500 hover:after:w-full after:transition-all">Business Info</a>
+                    <a href="#why-us" class="text-slate-700 hover:text-teal-700 font-semibold text-sm transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gold-500 hover:after:w-full after:transition-all">Why Choose Us</a>
+                    <a href="#contact" class="text-slate-700 hover:text-teal-700 font-semibold text-sm transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gold-500 hover:after:w-full after:transition-all">Contact</a>
+                    
+                    <a href="#contact" class="gold-button px-5 py-2.5 rounded-lg text-sm inline-flex items-center gap-2">
+                        <i class="fa-solid fa-paper-plane text-xs"></i> Reach Out
+                    </a>
+                </nav>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="flex lg:hidden">
+                    <button id="mobile-menu-btn" type="button" class="text-slate-700 hover:text-teal-700 p-2 rounded-lg focus:outline-none" aria-label="Toggle Navigation Menu" aria-expanded="false">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-teal-100 px-4 pt-2 pb-6 space-y-3 shadow-lg">
+            <a href="#home" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-800 hover:bg-teal-50 hover:text-teal-700">Home</a>
+            <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-800 hover:bg-teal-50 hover:text-teal-700">About Us</a>
+            <a href="#business-info" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-800 hover:bg-teal-50 hover:text-teal-700">Business Information</a>
+            <a href="#why-us" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-800 hover:bg-teal-50 hover:text-teal-700">Why Choose Us</a>
+            <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-800 hover:bg-teal-50 hover:text-teal-700">Contact Us</a>
+            <div class="pt-2 border-t border-slate-100 flex flex-col gap-2">
+                <button onclick="openModal('privacyModal')" class="text-left px-3 py-1.5 text-xs text-slate-500 hover:text-teal-600">Privacy Policy</button>
+                <button onclick="openModal('termsModal')" class="text-left px-3 py-1.5 text-xs text-slate-500 hover:text-teal-600">Terms & Conditions</button>
+                <button onclick="openModal('cookieModal')" class="text-left px-3 py-1.5 text-xs text-slate-500 hover:text-teal-600">Cookie Policy</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="relative bg-gradient-to-b from-teal-900 via-slate-900 to-navy-950 text-white py-24 lg:py-32 overflow-hidden">
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-teal-500/10 blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-gold-500/10 blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-800/50 border border-teal-400/30 text-teal-200 text-xs sm:text-sm font-medium">
+                            <i class="fa-solid fa-shield-halved text-gold-400"></i>
+                            Official Corporate Website
+                        </div>
+                        
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+                            Welcome to <br class="hidden sm:inline" />
+                            <span class="gold-gradient-text">Saran Enterprises</span>
+                        </h1>
+                        
+                        <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                            Saran Enterprises operates as a structured corporate business committed to exemplary standards of enterprise management, statutory compliance, and professional service delivery.
+                        </p>
+
+                        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                            <a href="#contact" class="gold-button w-full sm:w-auto px-8 py-3.5 rounded-lg text-center flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-envelope"></i> Contact Us
+                            </a>
+                            <a href="#about" class="w-full sm:w-auto px-8 py-3.5 rounded-lg border border-teal-400/40 text-teal-100 hover:bg-teal-800/40 font-semibold transition-all text-center flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-circle-info"></i> Learn More
+                            </a>
+                        </div>
+
+                        <!-- Highlights -->
+                        <div class="pt-8 border-t border-slate-800 grid grid-cols-2 sm:grid-cols-3 gap-4 text-left">
+                            <div class="p-3 rounded-lg bg-slate-800/40 border border-slate-700/50">
+                                <div class="text-xs text-slate-400">Entity Name</div>
+                                <div class="text-sm font-semibold text-teal-300">Saran Enterprises</div>
+                            </div>
+                            <div class="p-3 rounded-lg bg-slate-800/40 border border-slate-700/50">
+                                <div class="text-xs text-slate-400">Governance</div>
+                                <div class="text-sm font-semibold text-gold-400">Professional Standards</div>
+                            </div>
+                            <div class="p-3 rounded-lg bg-slate-800/40 border border-slate-700/50 col-span-2 sm:col-span-1">
+                                <div class="text-xs text-slate-400">Status</div>
+                                <div class="text-sm font-semibold text-teal-300">Active Entity</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5">
+                        <div class="dark-glass-card p-8 rounded-2xl shadow-2xl relative">
+                            <div class="absolute -top-3 -right-3 w-12 h-12 rounded-full bg-gold-500/20 border border-gold-400 flex items-center justify-center text-gold-400">
+                                <i class="fa-solid fa-award text-xl"></i>
+                            </div>
+
+                            <h2 class="text-xl font-bold text-white mb-6 border-b border-slate-700 pb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-building-columns text-teal-400"></i> Business Snapshot
+                            </h2>
+
+                            <div class="space-y-4 text-sm text-slate-300">
+                                <div>
+                                    <span class="block text-xs uppercase tracking-wider text-slate-400 font-semibold">Business Name</span>
+                                    <span class="font-bold text-white text-base">Saran Enterprises</span>
+                                </div>
+
+                                <div>
+                                    <span class="block text-xs uppercase tracking-wider text-slate-400 font-semibold">Trade & Operating Title</span>
+                                    <span class="text-slate-200">Saran Enterprises</span>
+                                </div>
+
+                                <div>
+                                    <span class="block text-xs uppercase tracking-wider text-slate-400 font-semibold">Official Contact</span>
+                                    <div class="mt-1 space-y-1">
+                                        <a href="tel:9876543210" class="block hover:text-gold-400 transition-colors">
+                                            <i class="fa-solid fa-phone text-teal-400 mr-2"></i> +91 9876543210
+                                        </a>
+                                        <a href="mailto:info@saranenterprises.com" class="block hover:text-gold-400 transition-colors">
+                                            <i class="fa-solid fa-envelope text-teal-400 mr-2"></i> info@saranenterprises.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT US SECTION -->
+        <section id="about" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-300/10 px-3 py-1 rounded-full border border-gold-400/20">Corporate Profile</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">About Saran Enterprises</h2>
+                    <div class="w-16 h-1 bg-teal-600 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <p class="text-slate-700 leading-relaxed text-base sm:text-lg">
+                            <strong class="text-slate-900">Saran Enterprises</strong> is a structured business entity established on the foundation of professional compliance, transparent operations, and steady enterprise development.
+                        </p>
+                        
+                        <p class="text-slate-600 leading-relaxed">
+                            With an unwavering focus on organizational integrity and efficiency, <strong>Saran Enterprises</strong> maintains a standard of excellence across all business communication and operational workflows.
+                        </p>
+
+                        <div class="bg-teal-50/70 border-l-4 border-teal-600 p-5 rounded-r-xl space-y-2">
+                            <h3 class="font-bold text-slate-900 flex items-center gap-2">
+                                <i class="fa-solid fa-location-dot text-teal-700"></i> Corporate Office
+                            </h3>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                Saran Enterprises Commercial Complex, Central Business District, India
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="glass-card p-6 rounded-xl border border-teal-100 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 rounded-lg bg-teal-100 text-teal-700 flex items-center justify-center text-xl font-bold mb-4">
+                                <i class="fa-solid fa-file-contract"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 mb-2">Corporate Entity</h3>
+                            <p class="text-sm text-slate-600">
+                                Operating as <strong>Saran Enterprises</strong> under established business practices.
+                            </p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-xl border border-teal-100 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 rounded-lg bg-gold-300/20 text-gold-700 flex items-center justify-center text-xl font-bold mb-4">
+                                <i class="fa-solid fa-stamp"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 mb-2">Statutory Standards</h3>
+                            <p class="text-sm text-slate-600">
+                                Committed to statutory requirements, operational governance, and client trust.
+                            </p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-xl border border-teal-100 shadow-sm hover:shadow-md transition-shadow sm:col-span-2">
+                            <div class="w-12 h-12 rounded-lg bg-teal-100 text-teal-700 flex items-center justify-center text-xl font-bold mb-4">
+                                <i class="fa-solid fa-landmark"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 mb-2">Corporate Identity</h3>
+                            <p class="text-sm text-slate-600">
+                                Operating uniformly under the registered commercial title <strong>Saran Enterprises</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BUSINESS INFORMATION SECTION -->
+        <section id="business-info" class="py-20 bg-slate-50 border-y border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-bold uppercase tracking-widest text-teal-700 bg-teal-100 px-3 py-1 rounded-full">Compliance & Operations</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Business Information</h2>
+                    <p class="text-slate-600 mt-2">Verified entity data for Saran Enterprises</p>
+                    <div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="p-6 sm:p-8 border-b border-slate-100">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Institutional Overview</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            <strong>Saran Enterprises</strong> is committed to structured operations, regulatory compliance, and responsible administrative execution.
+                        </p>
+                    </div>
+
+                    <div class="divide-y divide-slate-100">
+                        <div class="p-6 sm:p-8 grid md:grid-cols-3 gap-4">
+                            <div class="font-semibold text-slate-700">Full Business Name</div>
+                            <div class="md:col-span-2 text-slate-900 font-bold">Saran Enterprises</div>
+                        </div>
+
+                        <div class="p-6 sm:p-8 grid md:grid-cols-3 gap-4">
+                            <div class="font-semibold text-slate-700">Trade & Operating Name</div>
+                            <div class="md:col-span-2 text-slate-900 font-semibold">Saran Enterprises</div>
+                        </div>
+
+                        <div class="p-6 sm:p-8 grid md:grid-cols-3 gap-4">
+                            <div class="font-semibold text-slate-700">Business Address</div>
+                            <div class="md:col-span-2 text-slate-800 leading-relaxed">
+                                Saran Enterprises Commercial Complex, Central Business District, India
+                            </div>
+                        </div>
+
+                        <div class="p-6 sm:p-8 grid md:grid-cols-3 gap-4">
+                            <div class="font-semibold text-slate-700">Official Contact Details</div>
+                            <div class="md:col-span-2 space-y-2">
+                                <div>
+                                    <span class="text-xs text-slate-500 uppercase block">Phone</span>
+                                    <a href="tel:9876543210" class="text-teal-700 font-bold hover:underline">+91 9876543210</a>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-500 uppercase block">Email Address</span>
+                                    <a href="mailto:info@saranenterprises.com" class="text-teal-700 font-bold hover:underline">info@saranenterprises.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- WHY CHOOSE US SECTION -->
+        <section id="why-us" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-100 px-3 py-1 rounded-full">Core Values</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Why Work With Saran Enterprises</h2>
+                    <div class="w-16 h-1 bg-teal-600 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    
+                    <div class="p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-teal-500 transition-all duration-300">
+                        <div class="w-14 h-14 rounded-xl aqua-gradient-bg text-white flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fa-solid fa-shield-cat"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Statutory Integrity</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            <strong>Saran Enterprises</strong> maintains strict adherence to regulatory standards and corporate ethics in all business dealings.
+                        </p>
+                    </div>
+
+                    <div class="p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-gold-500 transition-all duration-300">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-r from-gold-500 to-gold-600 text-slate-950 flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Dedicated Support</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Our team ensures responsive interaction, streamlined operational assistance, and dependable commercial governance.
+                        </p>
+                    </div>
+
+                    <div class="p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-teal-500 transition-all duration-300">
+                        <div class="w-14 h-14 rounded-xl aqua-gradient-bg text-white flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fa-solid fa-diagram-project"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Structured Operations</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            <strong>Saran Enterprises</strong> focuses on efficiency, clear communication channels, and quality management.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-bold uppercase tracking-widest text-gold-400 bg-slate-800 px-3 py-1 rounded-full border border-gold-500/30">Get In Touch</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Contact Saran Enterprises</h2>
+                    <p class="text-slate-400 mt-2">Reach out for official inquiries and communication</p>
+                    <div class="w-16 h-1 bg-teal-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-12">
+                    
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="dark-glass-card p-6 sm:p-8 rounded-2xl space-y-6">
+                            
+                            <h3 class="text-xl font-bold text-white border-b border-slate-800 pb-4">Contact Details</h3>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center text-lg shrink-0 mt-1">
+                                    <i class="fa-solid fa-building"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs uppercase text-slate-400 font-semibold tracking-wider">Company Name</h4>
+                                    <p class="text-base font-bold text-white mt-0.5">Saran Enterprises</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-gold-500/20 text-gold-400 flex items-center justify-center text-lg shrink-0 mt-1">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs uppercase text-slate-400 font-semibold tracking-wider">Telephone</h4>
+                                    <a href="tel:9876543210" class="text-base font-bold text-gold-400 hover:underline mt-0.5 block">
+                                        +91 9876543210
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center text-lg shrink-0 mt-1">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs uppercase text-slate-400 font-semibold tracking-wider">Email Address</h4>
+                                    <a href="mailto:info@saranenterprises.com" class="text-base font-bold text-teal-300 hover:underline mt-0.5 block break-all">
+                                        info@saranenterprises.com
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-slate-800 text-slate-300 flex items-center justify-center text-lg shrink-0 mt-1">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs uppercase text-slate-400 font-semibold tracking-wider">Office Address</h4>
+                                    <p class="text-sm text-slate-300 mt-1 leading-relaxed">
+                                        Saran Enterprises Commercial Complex, Central Business District, India
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7">
+                        <div class="dark-glass-card p-6 sm:p-8 rounded-2xl">
+                            <h3 class="text-xl font-bold text-white mb-2">Send an Enquiry</h3>
+                            <p class="text-slate-400 text-xs sm:text-sm mb-6">Fill out the form below. All inquiries sent to Saran Enterprises are reviewed promptly.</p>
+
+                            <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="fullName" class="block text-xs font-semibold uppercase text-slate-300 mb-1">Full Name *</label>
+                                        <input type="text" id="fullName" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:border-teal-500 focus:outline-none text-sm" placeholder="Your name">
+                                    </div>
+                                    <div>
+                                        <label for="emailAddr" class="block text-xs font-semibold uppercase text-slate-300 mb-1">Email Address *</label>
+                                        <input type="email" id="emailAddr" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:border-teal-500 focus:outline-none text-sm" placeholder="name@domain.com">
+                                    </div>
+                                </div>
+
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="phoneNum" class="block text-xs font-semibold uppercase text-slate-300 mb-1">Phone Number *</label>
+                                        <input type="tel" id="phoneNum" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:border-teal-500 focus:outline-none text-sm" placeholder="Your contact number">
+                                    </div>
+                                    <div>
+                                        <label for="subject" class="block text-xs font-semibold uppercase text-slate-300 mb-1">Subject *</label>
+                                        <input type="text" id="subject" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:border-teal-500 focus:outline-none text-sm" placeholder="Inquiry subject">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="message" class="block text-xs font-semibold uppercase text-slate-300 mb-1">Message *</label>
+                                    <textarea id="message" rows="4" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:border-teal-500 focus:outline-none text-sm" placeholder="Please write your inquiry details here..."></textarea>
+                                </div>
+
+                                <button type="submit" class="gold-button w-full py-3 rounded-lg flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                                </button>
+
+                                <div id="formStatus" class="hidden p-3 rounded-lg text-xs leading-relaxed font-medium"></div>
+
+                                <p class="text-[11px] text-slate-500 text-center italic mt-2">
+                                    * Front-end submission interface. Actual message transmission requires backend email integration.
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-950 text-slate-400 border-t border-slate-800 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="grid md:grid-cols-12 gap-8">
+                
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded aqua-gradient-bg flex items-center justify-center text-gold-400 font-bold">
+                            <i class="fa-solid fa-building text-sm"></i>
+                        </div>
+                        <span class="font-bold text-white text-lg tracking-tight">Saran Enterprises</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+                        Saran Enterprises is a committed enterprise offering dependable services, adhering to established commercial regulations and corporate integrity.
+                    </p>
+                </div>
+
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">Quick Navigation</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#home" class="hover:text-gold-400 transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-gold-400 transition-colors">About Us</a></li>
+                        <li><a href="#business-info" class="hover:text-gold-400 transition-colors">Business Information</a></li>
+                        <li><a href="#why-us" class="hover:text-gold-400 transition-colors">Why Choose Us</a></li>
+                        <li><a href="#contact" class="hover:text-gold-400 transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-3">
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">Legal & Compliance Policies</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li>
+                            <button onclick="openModal('privacyModal')" class="hover:text-gold-400 text-left transition-colors">
+                                Privacy Policy - Saran Enterprises
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="openModal('termsModal')" class="hover:text-gold-400 text-left transition-colors">
+                                Terms and Conditions
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="openModal('cookieModal')" class="hover:text-gold-400 text-left transition-colors">
+                                Cookie Policy
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="pt-2 text-xs text-slate-500">
+                        Office Address:<br>
+                        Saran Enterprises Commercial Complex, Central Business District, India
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <div>
+                    &copy; <span id="currentYear"></span> <strong class="text-slate-400">Saran Enterprises</strong>. All Rights Reserved.
+                </div>
+                <div class="flex space-x-4">
+                    <button onclick="openModal('privacyModal')" class="hover:underline">Privacy</button>
+                    <span>|</span>
+                    <button onclick="openModal('termsModal')" class="hover:underline">Terms</button>
+                    <span>|</span>
+                    <button onclick="openModal('cookieModal')" class="hover:underline">Cookies</button>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- MODALS -->
+
+    <!-- PRIVACY POLICY MODAL -->
+    <div id="privacyModal" class="modal fixed inset-0 z-50 invisible opacity-0 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+        <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[85vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden">
+            
+            <div class="p-6 aqua-gradient-bg text-white flex items-center justify-between">
+                <div>
+                    <h3 id="privacyTitle" class="text-xl font-bold">Privacy Policy</h3>
+                    <p class="text-xs text-teal-100">Saran Enterprises</p>
+                </div>
+                <button onclick="closeModal('privacyModal')" class="text-white hover:text-gold-300 p-2 rounded-lg text-lg focus:outline-none" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-6 overflow-y-auto space-y-6 text-slate-700 text-xs sm:text-sm leading-relaxed">
+                <section>
+                    <h4 class="font-bold text-slate-900 text-base mb-1">1. Introduction & Entity Identification</h4>
+                    <p>This Privacy Policy applies to <strong>Saran Enterprises</strong>. We respect user privacy and are committed to safeguarding information provided directly through our official communications.</p>
+                </section>
+
+                <section>
+                    <h4 class="font-bold text-slate-900 text-base mb-1">2. Information Collection</h4>
+                    <p>We collect details submitted voluntarily via contact forms, telephone interactions, or email communications sent to <strong>info@saranenterprises.com</strong>.</p>
+                </section>
+
+                <section>
+                    <h4 class="font-bold text-slate-900 text-base mb-1">3. Usage of Information</h4>
+                    <p>Information submitted to <strong>Saran Enterprises</strong> is utilized solely for answering inquiries, processing requests, and maintaining administrative records.</p>
+                </section>
+
+                <section>
+                    <h4 class="font-bold text-slate-900 text-base mb-1">4. Cookies & Web Functionality</h4>
+                    <p>Essential browser storage mechanisms are used only for site navigation and visual layout features. No persistent tracking tools are employed.</p>
+                </section>
+
+                <section>
+                    <h4 class="font-bold text-slate-900 text-base mb-1">5. Contact Information</h4>
+                    <p>For questions regarding this policy, contact:<br>
+                    <strong>Saran Enterprises</strong><br>
+                    Email: info@saranenterprises.com<br>
+                    Phone: +91 9876543210</p>
+                </section>
+            </div>
+
+            <div class="p-4 bg-slate-100 border-t border-slate-200 flex justify-end">
+                <button onclick="closeModal('privacyModal')" class="px-6 py-2 bg-slate-800 text-white font-semibold rounded-lg text-xs hover:bg-slate-700 transition-colors">
+                    Close Window
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- TERMS & CONDITIONS MODAL -->
+    <div id="termsModal" class="modal fixed inset-0 z-50 invisible opacity-0 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+        <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[85vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden">
+            
+            <div class="p-6 aqua-gradient-bg text-white flex items-center justify-between">
+                <div>
+                    <h3 id="termsTitle" class="text-xl font-bold">Terms & Conditions</h3>
+                    <p class="text-xs text-teal-100">Saran Enterprises</p>
+                </div>
+                <button onclick="closeModal('termsModal')" class="text-white hover:text-gold-300 p-2 rounded-lg text-lg focus:outline-none" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-6 overflow-y-auto space-y-4 text-slate-700 text-xs sm:text-sm leading-relaxed">
+                <h4 class="font-bold text-slate-900 text-base">1. Acceptance of Terms</h4>
+                <p>By accessing the website of <strong>Saran Enterprises</strong>, users agree to abide by these terms of service and standard usage policies.</p>
+
+                <h4 class="font-bold text-slate-900 text-base">2. Website Content</h4>
+                <p>All information published on this website is for corporate informational purposes regarding <strong>Saran Enterprises</strong>.</p>
+            </div>
+
+            <div class="p-4 bg-slate-100 border-t border-slate-200 flex justify-end">
+                <button onclick="closeModal('termsModal')" class="px-6 py-2 bg-slate-800 text-white font-semibold rounded-lg text-xs hover:bg-slate-700 transition-colors">
+                    Close Window
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- COOKIE POLICY MODAL -->
+    <div id="cookieModal" class="modal fixed inset-0 z-50 invisible opacity-0 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="cookieTitle">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden">
+            
+            <div class="p-6 aqua-gradient-bg text-white flex items-center justify-between">
+                <div>
+                    <h3 id="cookieTitle" class="text-xl font-bold">Cookie Policy</h3>
+                    <p class="text-xs text-teal-100">Saran Enterprises</p>
+                </div>
+                <button onclick="closeModal('cookieModal')" class="text-white hover:text-gold-300 p-2 rounded-lg text-lg focus:outline-none" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-6 overflow-y-auto space-y-4 text-slate-700 text-xs sm:text-sm leading-relaxed">
+                <h4 class="font-bold text-slate-900 text-base">Essential Cookies</h4>
+                <p>The website of <strong>Saran Enterprises</strong> uses standard technical session flags to display modern UI features and modal interfaces seamlessly.</p>
+            </div>
+
+            <div class="p-4 bg-slate-100 border-t border-slate-200 flex justify-end">
+                <button onclick="closeModal('cookieModal')" class="px-6 py-2 bg-slate-800 text-white font-semibold rounded-lg text-xs hover:bg-slate-700 transition-colors">
+                    Close Window
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+                mobileBtn.setAttribute('aria-expanded', 'true');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+                mobileBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+                mobileBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        window.addEventListener('click', (event) => {
+            document.querySelectorAll('.modal').forEach(modal => {
+                if (event.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
+        });
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('emailAddr').value.trim();
+            const phone = document.getElementById('phoneNum').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const statusDiv = document.getElementById('formStatus');
+
+            if (!fullName || !email || !phone || !subject || !message) {
+                statusDiv.className = "p-3 rounded-lg text-xs leading-relaxed font-medium bg-rose-900/40 text-rose-200 border border-rose-700/50 block";
+                statusDiv.innerHTML = "<i class='fa-solid fa-circle-exclamation mr-1'></i> Please fill out all required fields.";
+                return;
+            }
+
+            statusDiv.className = "p-3 rounded-lg text-xs leading-relaxed font-medium bg-teal-900/50 text-teal-200 border border-teal-500/50 block space-y-1";
+            statusDiv.innerHTML = `
+                <div><i class='fa-solid fa-circle-check text-gold-400 mr-1'></i> <strong>Inquiry Received!</strong> Thank you ${fullName}.</div>
+                <div class='text-[11px] text-slate-300'>Note: Sending actual emails to <em>info@saranenterprises.com</em> requires backend integration.</div>
+            `;
+
+            document.getElementById('contactForm').reset();
+        }
+    </script>
+</body>
+</html>
